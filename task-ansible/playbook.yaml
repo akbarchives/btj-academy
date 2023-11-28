@@ -1,0 +1,14 @@
+- name: Menjalankan docker container
+  hosts: btj-academy
+  become: true
+  tasks: 
+   - docker_container:
+       name: ansible-todo-app
+       image: "todo-app"
+       interactive: true
+       tty: true
+       ports: 
+        - "8080:8080"
+       env:
+	AUTHOR: "Akbar"
+       
